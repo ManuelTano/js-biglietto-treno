@@ -10,9 +10,6 @@
 // di ricerca.
 
 
-// Recupero elemento
-
-const price = document.getElementById('prezzo');
 
 // Chiedo quanti chilometri vuole percorrere
 
@@ -22,48 +19,51 @@ const distance = prompt('Quanti chilometri vuoi percorrere?');
 
 const age = prompt('Qual è la tua età?');
 
+// Prezzo non scontato
+
+let prezzo = distance * 0.21;
+
 // Se l'età e il chilometraggio sono maggiori di zero
 
-if (distance > 0 && age > 0) {
-
-    // e se l'età è compresa fra 18 e 65
-
-    if (age < 18 || age < 65) {
-
-        // mi calcoli il prezzo non scontato
-
-        const prezzo = (distance * 0.21);
-    }
-
-    // altrimenti
-
-    else {
-
+if (distance > 0 || age > 0) {
+    
         // se l'età è minore di 18
 
         if (age < 18) {
 
-            // mi calcoli il prezzo scontato del 20%
+            // mi calcolo il prezzo scontato del 20%
 
-            const prezzo = (prezzo - 100 * 20)
+            prezzo = (prezzo - (prezzo * 0.2));
+            const price = document.getElementById('sconto20');
+
         }
 
         // se, invece,  l'età è maggiore di 65
         
         if (age > 65) {
 
-            // mi calcoli il prezzo scontato del 40%
+            // mi calcolo il prezzo scontato del 40%
 
-            const prezzo = (prezzo - 100 * 40)
+            prezzo = (prezzo - (prezzo * 0.4));
+            const price = document.getElementById('sconto40');
+
         }
     }
-}
+
 
 else {
-    alert('Errore. Devi avere un età minima e chilometraggio maggiore di 0.');
+
+    alert('Errore. Devi avere un età e chilometraggio maggiore di 0.');
 }
 
+// Recupero elemento
+
+const price = document.getElementById('prezzo');
 
 // Genero il prezzo finale in decimali
 
-prezzo.innerText Math. round()  = (age + distance);
+price.innerHTML = prezzo.toFixed(2)
+
+
+
+
