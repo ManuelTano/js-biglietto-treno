@@ -66,4 +66,4 @@ else {
 
 // Genero il prezzo finale in decimali
 
-prezzo.innerText = (age + distance);
+prezzo.innerText Math. round()  = (age + distance);
