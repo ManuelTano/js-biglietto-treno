@@ -34,8 +34,6 @@ if (distance > 0 || age > 0) {
             // mi calcolo il prezzo scontato del 20%
 
             prezzo = (prezzo - (prezzo * 0.2));
-            const price = document.getElementById('sconto20');
-
         }
 
         // se, invece,  l'età è maggiore di 65
@@ -45,8 +43,6 @@ if (distance > 0 || age > 0) {
             // mi calcolo il prezzo scontato del 40%
 
             prezzo = (prezzo - (prezzo * 0.4));
-            const price = document.getElementById('sconto40');
-
         }
     }
 
@@ -63,7 +59,6 @@ const price = document.getElementById('prezzo');
 // Genero il prezzo finale in decimali
 
 price.innerHTML = prezzo.toFixed(2)
-
 
 
 
