@@ -19,9 +19,12 @@ const distance = prompt('Quanti chilometri vuoi percorrere?');
 
 const age = prompt('Qual è la tua età?');
 
+let discountMessage = 'Ti è stato applicato uno sconto del ';
+
 // Prezzo non scontato
 
 let prezzo = distance * 0.21;
+
 
 // Se l'età e il chilometraggio sono maggiori di zero
 
@@ -32,8 +35,9 @@ if (distance > 0 || age > 0) {
         if (age < 18) {
 
             // mi calcolo il prezzo scontato del 20%
-
+            hasDiscount = true;
             prezzo = (prezzo - (prezzo * 0.2));
+            discountMessage += '20%'
         }
 
         // se, invece,  l'età è maggiore di 65
@@ -42,7 +46,10 @@ if (distance > 0 || age > 0) {
 
             // mi calcolo il prezzo scontato del 40%
 
+            hasDiscount = true;
             prezzo = (prezzo - (prezzo * 0.4));
+            discountMessage += '40%'
+
         }
     }
 
@@ -58,7 +65,11 @@ const price = document.getElementById('prezzo');
 
 // Genero il prezzo finale in decimali
 
-price.innerHTML = prezzo.toFixed(2)
+price.innerHTML = prezzo.toFixed(2);
 
+if (hasDiscount) {
+    const discountElement = document.getElementById('sconto');
+    discountElement.innerText = discountMessage;
+}
 
 
